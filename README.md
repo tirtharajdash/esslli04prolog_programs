@@ -1,2 +1,6 @@
 # esslli04prolog_programs
-Simple time passing Prolog programming for the tasks in ESSLLI2004
+Simple Prolog programming for the tasks in ESSLLI2004
+
+The directories are arranged as per http://cs.union.edu/~striegnk/courses/esslli04prolog/index.php
+
+This is just for fun :-)
