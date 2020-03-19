@@ -1,0 +1,2 @@
+complexterm(X):-
+	atom(+X).
