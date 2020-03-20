@@ -20,58 +20,58 @@ go:-
 
 symptom(Patient,fever):-
 	write('Does ',Patient,' have a fever (y/n) ?'),
-	response(Reply).
-	%Reply='y'.
+	response(Reply),
+	Reply='y'.
 
 symptom(Patient,rash):-
 	write('Does ',Patient,' have a rash (y/n) ?'),
-	response(Reply).
-	%Reply='y'.
+	response(Reply),
+	Reply='y'.
 
 symptom(Patient,headache):-
 	write('Does ',Patient,' have a headache (y/n) ?'),
-	response(Reply).
-	%Reply='y'.
+	response(Reply),
+	Reply='y'.
 
 symptom(Patient,runny_nose):-
 	write('Does ',Patient,' have a runny_nose (y/n) ?'),
-	response(Reply).
-	%Reply='y'.
+	response(Reply),
+	Reply='y'.
 
 symptom(Patient,conjunctivitis):-
 	write('Does ',Patient,' have a conjunctivitis (y/n) ?'),
-	response(Reply).
-	%Reply='y'.
+	response(Reply),
+	Reply='y'.
 
 symptom(Patient,cough):-
 	write('Does ',Patient,' have a cough (y/n) ?'),
-	response(Reply).
-	%Reply='y'.
+	response(Reply),
+	Reply='y'.
 
 symptom(Patient,body_ache):-
 	write('Does ',Patient,' have a body_ache (y/n) ?'),
-	response(Reply).
-	%Reply='y'.
+	response(Reply),
+	Reply='y'.
 
 symptom(Patient,chills):-
 	write('Does ',Patient,' have a chills (y/n) ?'),
-	response(Reply).
-	%Reply='y'.
+	response(Reply),
+	Reply='y'.
 
 symptom(Patient,sore_throat):-
 	write('Does ',Patient,' have a sore_throat (y/n) ?'),
-	response(Reply).
-	%Reply='y'.
+	response(Reply),
+	Reply='y'.
 
 symptom(Patient,sneezing):-
 	write('Does ',Patient,' have a sneezing (y/n) ?'),
-	response(Reply).
-	%Reply='y'.
+	response(Reply),
+	Reply='y'.
 
 symptom(Patient,swollen_glands):-
 	write('Does ',Patient,' have a swollen_glands (y/n) ?'),
-	response(Reply).
-	%Reply='y'.
+	response(Reply),
+	Reply='y'.
 
 hypothesis(Patient,measles):-
 	symptom(Patient,fever),
@@ -118,6 +118,6 @@ hypothesis(Patient,measles):-
 	symptom(Patient,sneezing),
 	symptom(Patient,runny_nose).
 
-response(Reply):-
+response(Reply),-
 	read(Reply),
 	write(Reply),nl.
