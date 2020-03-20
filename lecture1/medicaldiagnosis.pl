@@ -1,77 +1,90 @@
-% domains
-%	disease,indication = symbol
-%	Patient,name = string
+% variable domains
+%	disease: indication = symbol
+%	Patient: name = string
 
-% predicates
+% predicates written
 %	hypothesis(string,disease)
 %	symptom(name,indication)
-%	response(char)
-%	go
+%	read(char)
+%	diganose
 
-go:-
+diagnose:-
 	write('What is the patient\'s name? '),
 	read(Patient),
+	write('Which disease do you want to diagnose? (type one of the following)'), nl,
+	write('measles/german_measles/flu/common_cold/mumps/chicken_pox/measles/covidflu: '),
+	read(Disease),
 	hypothesis(Patient,Disease),
-	write(Patient,'probably has ',Disease,'.'),nl.
+	write('Disease present.'),nl.
 
-go:-
-	write('Sorry, I don\'t seem to be able to'),nl,
-	write('diagnose the disease.'),nl.
+diagnose:-
+	write('Disease absent.'),nl.
 
 symptom(Patient,fever):-
-	write('Does ',Patient,' have a fever (y/n) ?'),
+	write('fever (y/n) ?'),
 	response(Reply),
 	Reply='y'.
 
 symptom(Patient,rash):-
-	write('Does ',Patient,' have a rash (y/n) ?'),
+	write('rash (y/n) ?'),
 	response(Reply),
 	Reply='y'.
 
 symptom(Patient,headache):-
-	write('Does ',Patient,' have a headache (y/n) ?'),
+	write('headache (y/n) ?'),
 	response(Reply),
 	Reply='y'.
 
 symptom(Patient,runny_nose):-
-	write('Does ',Patient,' have a runny_nose (y/n) ?'),
+	write('runny_nose (y/n) ?'),
 	response(Reply),
 	Reply='y'.
 
 symptom(Patient,conjunctivitis):-
-	write('Does ',Patient,' have a conjunctivitis (y/n) ?'),
+	write('conjunctivitis (y/n) ?'),
 	response(Reply),
 	Reply='y'.
 
 symptom(Patient,cough):-
-	write('Does ',Patient,' have a cough (y/n) ?'),
+	write('cough (y/n) ?'),
 	response(Reply),
 	Reply='y'.
 
 symptom(Patient,body_ache):-
-	write('Does ',Patient,' have a body_ache (y/n) ?'),
+	write('body_ache (y/n) ?'),
 	response(Reply),
 	Reply='y'.
 
 symptom(Patient,chills):-
-	write('Does ',Patient,' have a chills (y/n) ?'),
+	write('chills (y/n) ?'),
 	response(Reply),
 	Reply='y'.
 
 symptom(Patient,sore_throat):-
-	write('Does ',Patient,' have a sore_throat (y/n) ?'),
+	write('sore_throat (y/n) ?'),
 	response(Reply),
 	Reply='y'.
 
 symptom(Patient,sneezing):-
-	write('Does ',Patient,' have a sneezing (y/n) ?'),
+	write('sneezing (y/n) ?'),
 	response(Reply),
 	Reply='y'.
 
 symptom(Patient,swollen_glands):-
-	write('Does ',Patient,' have a swollen_glands (y/n) ?'),
+	write('swollen_glands (y/n) ?'),
 	response(Reply),
 	Reply='y'.
+
+symptom(Patient,tiredness):-
+	write('tiredness (y/n) ?'),
+	response(Reply),
+	Reply='y'.
+
+symptom(Patient,breathingdiff):-
+	write('difficulty in breathing (y/n) ?'),
+	response(Reply),
+	Reply='y'.
+
 
 hypothesis(Patient,measles):-
 	symptom(Patient,fever),
@@ -113,11 +126,13 @@ hypothesis(Patient,chicken_pox):-
 	symptom(Patient,body_ache),
 	symptom(Patient,rash).
 
-hypothesis(Patient,measles):-
+hypothesis(Patient,covidflu):-
+	symptom(Patient,fever),
 	symptom(Patient,cough),
-	symptom(Patient,sneezing),
-	symptom(Patient,runny_nose).
+	symptom(Patient,tiredness),
+	symptom(Patient,breathingdiff).
 
-response(Reply),-
+response(Reply):-
 	read(Reply),
+	write('Your response is: '),
 	write(Reply),nl.
